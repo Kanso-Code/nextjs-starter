@@ -1,0 +1,1 @@
+export { useGetFilmsQuery } from './getFilms';

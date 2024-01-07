@@ -1,3 +1,73 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "plugins": ["simple-import-sort", "eslint-plugin-import"],
+  "rules": {
+    "import/no-default-export": "error",
+    "simple-import-sort/imports": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["pages/*"],
+            "message": "Please move the code you need to import into the `src` directory structure."
+          },
+          {
+            "group": ["src/*"],
+            "message": "Please use '~/*' import."
+          },
+          {
+            "group": [
+              "@mui/*/*/*",
+              "!@mui/material/test-utils/*",
+              "!@mui/material/styles/createTypography",
+              "!@mui/material/styles/createPalette"
+            ],
+            "message": "Please use 2nd level MUI import. See: https://mui.com/material-ui/guides/minimizing-bundle-size/"
+          }
+        ]
+      }
+    ],
+    "import/no-restricted-paths": [
+      "warn",
+      {
+        "zones": [
+          {
+            "target": "src/shared/**/*",
+            "from": "src/portals/**/*",
+            "message": "Please move all code used by ~/shared to ~/shared."
+          },
+          {
+            "target": "src/portals/!(admin)/**/*",
+            "from": "src/portals/admin/**/*",
+            "message": "Please move code used in more than one portal to ~/shared."
+          },
+          {
+            "target": "src/portals/!(community)/**/*",
+            "from": "src/portals/community/**/*",
+            "message": "Please move code used in more than one portal to ~/shared."
+          },
+          {
+            "target": "src/portals/!(guide)/**/*",
+            "from": "src/portals/guide/**/*",
+            "message": "Please move code used in more than one portal to ~/shared."
+          },
+          {
+            "target": "src/portals/!(kanekto)/**/*",
+            "from": "src/portals/kanekto/**/*",
+            "message": "Please move code used in more than one portal to ~/shared."
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["pages/**/*.tsx", "pages/**/*.ts"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
 }
+
