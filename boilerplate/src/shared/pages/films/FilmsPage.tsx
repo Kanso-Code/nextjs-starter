@@ -12,7 +12,7 @@ import { headerSx } from './styles';
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async () => {
     store.dispatch(getFilms.initiate());
-    // await Promise.all(api.util.getRunningOperationPromises());
+    await Promise.all(store.dispatch(api.util.getRunningQueriesThunk()));
 
     return {
       props: {},

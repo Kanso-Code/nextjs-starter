@@ -11,7 +11,7 @@ export const api = createApi({
   }),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
-      return (action.payload as { [key: string]: any })[reducerPath];
+      return (action.payload as any)[reducerPath];
     }
   },
   tagTypes,
