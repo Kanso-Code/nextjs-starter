@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and has [`RTK Query`](https://redux-toolkit.js.org/rtk-query/overview) and [`MUI`](https://mui.com/) integrated.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+The following packages are integrated:
+
+- RTK Query with configured store and usage example;
+- MUI usage example;
+- ESLint configurations;
+- React Hook Form example;
+- Husky pre-commit hook to run lint auto-fix;
+- React Testing Library;
 
 ## Getting Started
 
