@@ -3,7 +3,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import { BASE_API_URL } from './constatnts';
 
-export const tagTypes = ['Films'] as const;
+export const tagTypes = ['Posts'] as const;
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({

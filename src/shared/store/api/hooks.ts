@@ -1,1 +1,1 @@
-export { useGetFilmsQuery } from './endpoints/getFilms';
+export { useGetPostsQuery, useAddPostMutation } from './endpoints/posts';

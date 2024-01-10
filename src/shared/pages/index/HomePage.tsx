@@ -1,10 +1,25 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Stack, Typography } from '@mui/material';
+import { FormProvider, useForm } from 'react-hook-form';
 
-import { containerSx, headerSx, imageSx } from './styles';
+import { Post } from '~/shared/store/api/endpoints/posts';
 
-export const HomePage = () => (
-  <Stack sx={containerSx}>
-    <Typography sx={headerSx}>Studio Ghibli API</Typography>
-    <Box sx={imageSx} />
-  </Stack>
-);
+import { Form } from './components';
+import { containerSx, headerSx } from './styles';
+import { schema } from './validation';
+
+export const HomePage = () => {
+  const methods = useForm<Post>({
+    resolver: yupResolver(schema),
+    mode: 'onChange',
+  });
+
+  return (
+    <Stack sx={containerSx}>
+      <Typography sx={headerSx}>Add new post</Typography>
+      <FormProvider {...methods}>
+        <Form />
+      </FormProvider>
+    </Stack>
+  );
+};

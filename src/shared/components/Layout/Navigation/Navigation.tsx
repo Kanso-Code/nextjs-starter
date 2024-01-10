@@ -8,8 +8,8 @@ export const Navigation = () => (
     <NavMenuItem isSelected sx={topLevelNavItemSx} href="/">
       Home
     </NavMenuItem>
-    <NavMenuItem isSelected sx={topLevelNavItemSx} href="/films">
-      Films
+    <NavMenuItem isSelected sx={topLevelNavItemSx} href="/posts">
+      Posts
     </NavMenuItem>
   </MenuList>
 );
