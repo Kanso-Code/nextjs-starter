@@ -9,13 +9,14 @@ export const NavMenuItem: FC<NavMenuItemProps> = ({
   children,
   sx,
   href,
+  dataTestId,
   isSelected,
 }) => {
   const router = useRouter();
   const selected = router.asPath === href && Boolean(isSelected);
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} data-testid={dataTestId}>
       <MenuItem sx={sx} selected={selected}>
         {children}
       </MenuItem>

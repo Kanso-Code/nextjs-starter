@@ -24,7 +24,7 @@ export const PostsPage = () => {
   const { data: posts } = useGetPostsQuery();
 
   return (
-    <Stack>
+    <Stack data-testid="postsPage">
       <Typography sx={headerSx}>All posts</Typography>
       <Grid container spacing={4} rowSpacing={3} justifyContent="center" mt={1}>
         {!!posts?.length && (

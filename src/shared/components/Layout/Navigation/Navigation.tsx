@@ -5,10 +5,20 @@ import { navLeftSx, topLevelNavItemSx } from './styles';
 
 export const Navigation = () => (
   <MenuList sx={navLeftSx}>
-    <NavMenuItem isSelected sx={topLevelNavItemSx} href="/">
+    <NavMenuItem
+      dataTestId="homeNavItem"
+      isSelected
+      sx={topLevelNavItemSx}
+      href="/"
+    >
       Home
     </NavMenuItem>
-    <NavMenuItem isSelected sx={topLevelNavItemSx} href="/posts">
+    <NavMenuItem
+      dataTestId="postsNavItem"
+      isSelected
+      sx={topLevelNavItemSx}
+      href="/posts"
+    >
       Posts
     </NavMenuItem>
   </MenuList>

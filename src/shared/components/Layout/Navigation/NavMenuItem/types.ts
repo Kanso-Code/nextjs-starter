@@ -6,4 +6,5 @@ export interface NavMenuItemProps {
   sx?: SxProps<Theme> | undefined;
   href: string;
   isSelected?: boolean;
+  dataTestId: string;
 }

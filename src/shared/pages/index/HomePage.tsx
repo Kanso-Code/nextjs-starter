@@ -15,7 +15,7 @@ export const HomePage = () => {
   });
 
   return (
-    <Stack sx={containerSx}>
+    <Stack sx={containerSx} data-testid="homePage">
       <Typography sx={headerSx}>Add new post</Typography>
       <FormProvider {...methods}>
         <Form />
