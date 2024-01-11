@@ -6,7 +6,7 @@ export const boxContainerSx: SxProps<Theme> = (theme) => ({
     '0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03)',
   borderRadius: '12px',
   overflow: 'inherit',
-  background: theme.palette.blue[50],
+  background: theme.palette.blue?.[50],
   width: '700px',
   p: 3,
 });
@@ -20,7 +20,7 @@ export const confirmationSx: SxProps<Theme> = (theme) => ({
   alignItems: 'center',
   p: '12px',
   borderRadius: '12px',
-  border: `1px solid ${theme.palette.gray[500]}`,
+  border: `1px solid ${theme.palette.gray?.[500]}`,
   background: theme.palette.common.white,
 
   '& button': {
@@ -37,8 +37,8 @@ export const inputSx: SxProps<Theme> = {
 };
 
 export const inputLabelSx: SxProps<Theme> = (theme) => ({
-  ...theme.typography.text.sm.semibold,
-  color: `${theme.palette.gray[700]} !important`,
+  ...theme.typography.text?.sm?.semibold,
+  color: `${theme.palette.gray?.[700]} !important`,
   width: { xs: '100%', sm: '280px' },
   marginBottom: '4px',
 });
@@ -56,10 +56,10 @@ export const inputFieldSx: SxProps<Theme> = (theme) => ({
 
   '& input': {
     height: '27px',
-    ...theme.typography.text.md.normal,
+    ...theme.typography.text?.md?.normal,
   },
   '& textarea': {
-    ...theme.typography.text.md.normal,
+    ...theme.typography.text?.md?.normal,
   },
 });
 
@@ -68,5 +68,6 @@ export const saveBtnSx: SxProps<Theme> = (theme) => ({
   width: '150px',
   color: 'white',
   p: '8px 14px',
-  ...theme.typography.text.sm.bold,
+  pointerEvents: 'all',
+  ...theme.typography.text?.sm?.bold,
 });

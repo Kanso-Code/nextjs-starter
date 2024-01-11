@@ -48,9 +48,9 @@ export const Form = () => {
     },
     [addPost, reset, showConfirmation],
   );
-  console.log(confirmationVisible, 'confirmationVisible');
+
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)}>
+    <form aria-label="signup-form" onSubmit={handleSubmit(onFormSubmit)}>
       <Card sx={boxContainerSx}>
         {confirmationVisible && (
           <Stack sx={confirmationSx}>
@@ -58,47 +58,57 @@ export const Form = () => {
             <Button onClick={hideConfirmation}>Close</Button>
           </Stack>
         )}
+        <Stack alignItems="end">
+          <FormControl variant="standard" fullWidth sx={inputSx}>
+            <FormLabel htmlFor="title" sx={inputLabelSx}>
+              Post Title
+            </FormLabel>
+            <TextField
+              size="small"
+              margin="dense"
+              variant="outlined"
+              placeholder="Enter post title"
+              id="title"
+              sx={inputFieldSx}
+              error={Boolean(errors.title)}
+              {...register('title')}
+            />
+          </FormControl>
+          <Typography data-testid="alert-title" mb={1} color="crimson">
+            {errors?.title?.message}
+          </Typography>
+        </Stack>
 
-        <FormControl variant="standard" fullWidth sx={inputSx}>
-          <FormLabel htmlFor="title" sx={inputLabelSx}>
-            Post Title
-          </FormLabel>
-          <TextField
-            size="small"
-            margin="dense"
-            variant="outlined"
-            placeholder="Enter post title"
-            id="title"
-            sx={inputFieldSx}
-            error={Boolean(errors.title)}
-            {...register('title')}
-          />
-        </FormControl>
+        <Stack alignItems="end">
+          <FormControl variant="standard" fullWidth sx={inputSx}>
+            <FormLabel htmlFor="body" sx={inputLabelSx}>
+              Post Body
+            </FormLabel>
+            <TextField
+              size="small"
+              margin="dense"
+              multiline
+              rows={6}
+              variant="outlined"
+              placeholder="Enter post body"
+              id="body"
+              sx={inputFieldSx}
+              error={Boolean(errors?.body)}
+              {...register('body')}
+            />
+          </FormControl>
+          <Typography data-testid="alert-body" color="crimson">
+            {errors?.body?.message}
+          </Typography>
+        </Stack>
 
-        <FormControl variant="standard" fullWidth sx={inputSx}>
-          <FormLabel htmlFor="body" sx={inputLabelSx}>
-            Post Body
-          </FormLabel>
-          <TextField
-            size="small"
-            margin="dense"
-            multiline
-            rows={6}
-            variant="outlined"
-            placeholder="Enter post body"
-            id="body"
-            sx={inputFieldSx}
-            error={Boolean(errors?.body)}
-            {...register('body')}
-          />
-        </FormControl>
         <Divider sx={{ mb: 2, mt: 2 }} />
         <Stack alignItems="end">
           <Button
             variant="contained"
             type="submit"
             sx={saveBtnSx}
-            disabled={!isValid}
+            disabled={!!errors.body || !!errors.title}
           >
             Add post
           </Button>
