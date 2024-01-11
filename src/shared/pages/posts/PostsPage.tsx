@@ -28,7 +28,11 @@ export const PostsPage = () => {
       <Typography sx={headerSx}>All posts</Typography>
       <Grid container spacing={4} rowSpacing={3} justifyContent="center" mt={1}>
         {!!posts?.length && (
-          <Masonry columns={{ xs: 1, sm: 2 }} spacing={5}>
+          <Masonry
+            data-testid="postList"
+            columns={{ xs: 1, sm: 2 }}
+            spacing={5}
+          >
             {posts?.map((post) => <PostCard key={post.id} post={post} />)}
           </Masonry>
         )}

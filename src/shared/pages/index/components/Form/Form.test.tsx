@@ -72,8 +72,7 @@ describe('Form', () => {
     const user = userEvent.setup();
     const handleOnSubmitMock = jest.fn();
 
-    screen.getByRole('form', { name: 'signup-form' }).onsubmit =
-      handleOnSubmitMock;
+    screen.getByTestId('signupForm').onsubmit = handleOnSubmitMock;
 
     await user.type(title, 'Test title');
     await user.type(body, 'Test body');

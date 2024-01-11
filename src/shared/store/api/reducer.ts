@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import { BASE_API_URL } from './constatnts';
+import { BASE_API_URL } from './constants';
 
 export const tagTypes = ['Posts'] as const;
 

@@ -35,7 +35,7 @@ export const Form = () => {
     handleSubmit,
     register,
     reset,
-    formState: { isValid, errors },
+    formState: { errors },
   } = useFormContext<Post>();
 
   const onFormSubmit = useCallback(
@@ -50,7 +50,7 @@ export const Form = () => {
   );
 
   return (
-    <form aria-label="signup-form" onSubmit={handleSubmit(onFormSubmit)}>
+    <form data-testid="signupForm" onSubmit={handleSubmit(onFormSubmit)}>
       <Card sx={boxContainerSx}>
         {confirmationVisible && (
           <Stack sx={confirmationSx}>
